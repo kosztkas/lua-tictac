@@ -1,0 +1,17 @@
+[S3E]
+MemMgrMaxAllocWarning=0
+DispFixRot=FixedPortrait
+SplashScreenFile = "splash.jpg"
+SplashScreenWidth = 400
+SplashScreenHeight = 400
+SplashScreenBkR = 255
+SplashScreenBkG = 255
+SplashScreenBkB = 255
+
+
+{OS=WP8}
+[GL]
+PreCompileShaderBinaries=1
+
+[QUICK]
+mainFilename="main.lua"
