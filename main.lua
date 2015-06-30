@@ -8,20 +8,48 @@ local p1name = "Alice"
 local p2name = "Bob"
 local nxt=p1name
 
-local Next = director:createLabel({x=director.displayWidth/10, y=director.displayWidth/3, text='Next: '..nxt, color=color.black, hAlignment="center"})
-local title = director:createLabel({x=0, y=-10, text='Tic-Tac-Toe', color=color.black, hAlignment="center", vAlignment="top",})
-local Player1 = director:createLabel({x=director.displayWidth/25, y=director.displayWidth/3+50, text="X:"..p1name, color=color.black, hAlignment="left"})
-local Player2 = director:createLabel({x=director.displayWidth/25, y=director.displayWidth/3, text="O:"..p2name, color=color.black, hAlignment="left"})
+local Next = director:createLabel({
+	x=director.displayWidth/10, 
+	y=director.displayWidth/3, 
+	text='Next: '..nxt, color=color.black, 
+	hAlignment="center"
+})
+
+local title = director:createLabel({
+	x=0, 
+	y=-10, 
+	text='Tic-Tac-Toe', 
+	color=color.black, 
+	hAlignment="center", 
+	vAlignment="top",
+})
+
+local Player1 = director:createLabel({
+	x=director.displayWidth/25, 
+	y=director.displayWidth/3+50, 
+	text="X:"..p1name, 
+	color=color.black, 
+	hAlignment="left"
+})
+
+local Player2 = director:createLabel({
+	x=director.displayWidth/25, 
+	y=director.displayWidth/3, 
+	text="O:"..p2name, 
+	color=color.black, 
+	hAlignment="left"
+})
 
 --Drawing the board
 function DrawLines(x, y, v, h)
 
-	return director:createLines( {
+	return director:createLines({
 		x=x, y=y,
 		coords={0,0, v,h},
 		strokeColor=color.black,
 	} )
 end
+
 local Lines = {}
 Lines[0]=DrawLines(10, director.displayHeight-director.displayWidth/3-30, director.displayWidth-20, 0)
 Lines[1]=DrawLines(director.displayWidth/3, director.displayHeight-45, 0, -(director.displayWidth-20))
@@ -45,8 +73,22 @@ function winMessage(winner)
 		source = "note.png",
 		alpha=0.985
 		})
-	Message[2]=director:createLabel({x=0, y=director.displayCenterY+25, text="The winner is", color=color.black, hAlignment="center", rotation=2.7})
-	Message[3]=director:createLabel({x=0, y=director.displayCenterY-20, text=winner, color=color.black, hAlignment="center", rotation=2.7})
+	
+	Message[2]=director:createLabel({
+		x=0, 
+		y=director.displayCenterY+25, 
+		text="The winner is", 
+		color=color.black,
+		hAlignment="center", 
+		rotation=2.7})
+	
+	Message[3]=director:createLabel({
+		x=0, 
+		y=director.displayCenterY-20, 
+		text=winner, 
+		color=color.black, 
+		hAlignment="center", 
+		rotation=2.7})
 end
 
 function touchHandler(event)
